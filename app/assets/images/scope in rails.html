@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>What is scope/named_scope in rails? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="What is scope/named_scope in rails?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I&#39;ve recently started an internship. My employer uses ruby on rails, and I frequently encounter new syntax that I need to look up to understand. I&#39;ve googled around for a good explanation of named_...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails">
+    <link rel="canonical" href="./scope in rails_files/scope in rails.html">
+
+    
+    
+    <script type="text/javascript" async="" src="./scope in rails_files/ados"></script><script async="" src="./scope in rails_files/quant.js"></script><script async="" src="./scope in rails_files/beacon.js"></script><script async="" src="./scope in rails_files/analytics.js"></script><script type="text/javascript" async="" src="./scope in rails_files/ados.js"></script><script src="./scope in rails_files/jquery.min.js"></script>
+    <script src="./scope in rails_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./scope in rails_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;What is scope/named_scope in rails?&#39;" href="http://stackoverflow.com/feeds/question/4869994">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:4869994});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '4869994');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1433234884,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"75ea7ad01c82f04c807f86af1b6ba740","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"b1483a05828c","js/moderator.en.js":"ba8209b10b0d","js/full-anon.en.js":"2f91e71b770f","js/full.en.js":"654e2fffcee5","js/wmd.en.js":"2e8b29ce4404","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"a07d3df1c245","js/help.en.js":"9a91981d7673","js/tageditor.en.js":"c84618a71b61","js/tageditornew.en.js":"19d6c3f231f8","js/inline-tag-editing.en.js":"de80429b1816","js/revisions.en.js":"6c7265ea9fa1","js/review.en.js":"1bb92cbbad30","js/tagsuggestions.en.js":"b278f9a0b23b","js/post-validation.en.js":"f25019da602c","js/explore-qlist.en.js":"e7a80905fa22","js/events.en.js":"a18ec8b14b1b","js/keyboard-shortcuts.en.js":"e013a9302e22","js/external-editor.en.js":"141e727c7049","js/external-editor.en.js":"141e727c7049","js/snippet-javascript.en.js":"eff1370e1b89","js/snippet-javascript-codemirror.en.js":"5e5e0a4ab40a"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./scope in rails_files/full-anon.en.js"></script><script async="" src="./scope in rails_files/snippet-javascript.en.js"></script><script async="" src="./scope in rails_files/post-validation.en.js"></script><script async="" src="./scope in rails_files/prettify-full.en.js"></script><script async="" src="./scope in rails_files/external-editor.en.js"></script><script type="text/javascript" src="./scope in rails_files/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"><link type="text/css" rel="stylesheet" href="./scope in rails_files/jobs.min.css"></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4869994%2fwhat-is-scope-named-scope-in-rails" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4869994%2fwhat-is-scope-named-scope-in-rails" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 144 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4869994%2fwhat-is-scope-named-scope-in-rails" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4869994%2fwhat-is-scope-named-scope-in-rails" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="./scope in rails_files/scope in rails.html" class="question-hyperlink">What is scope/named_scope in rails?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="4869994" id="question">
+
+    <script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1684971148",4).setZone(43) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1684971148"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjciI6Njk1NzEzLCJkaSI6IjRmM2EwMjgyNjk2ZTQ1NGM4YzA1NmNjMzI2OTAwN2RlIiwiZG0iOjEsImZjIjo3MjE4MDcsImZsIjo0MzE3ODAsImlwIjoiMTAzLjkuMTIuMTUwIiwia3ciOiJydWJ5LW9uLXJhaWxzLG5hbWVkLXNjb3BlIiwibnciOjIyLCJwYyI6MCwicHIiOjE2MDQsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jby5pbi8iLCJzdCI6ODI3NywidWsiOiJ1ZTEtOGJkZDdhYjU3MTE2NDhmNmI1NmI1MjI4ODdkYWUwOTIiLCJ6biI6NDMsInRzIjoxNDMzMjM0ODg1NDY3LCJiZiI6dHJ1ZSwicG4iOiJhZHplcmsxNjg0OTcxMTQ4IiwidXIiOiJodHRwOi8vY2FyZWVycy5zdGFja292ZXJmbG93LmNvbS9qb2JzL3JlbW90ZT91dG1fc291cmNlPXN0YWNrb3ZlcmZsb3cuY29tJnV0bV9tZWRpdW09YWQmdXRtX2NhbXBhaWduPWNhbmRpZGF0ZXMtd2ZoJnV0bV9jb250ZW50PWxiLXdmaC1raWQtd29yay1vbi13b3JrIn0&s=aPCoQ0JTYAZg5gsLd3iMRiJa-b0" rel="nofollow" target="_blank" title=""><img src="./scope in rails_files/d47c809dea6241b9933a81fe1d0f7085.jpg" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./scope in rails_files/i.gif"></div>    <table class="">
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="4869994">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">32</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>17</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I've recently started an internship. My employer uses ruby on rails, and I frequently encounter new syntax that I need to look up to understand. I've googled around for a good explanation of named_scope, but what I've found so far is mostly blog posts giving high praise for it, rather a straight definition or introduction.</p>
+
+<p>What exactly is named_scope (now simply called scope) in ruby on rails?</p>
+
+<p>Thanks.</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails" class="post-tag js-gps-track" title="show questions tagged &#39;ruby-on-rails&#39;" rel="tag">ruby-on-rails</a> <a href="http://stackoverflow.com/questions/tagged/named-scope" class="post-tag js-gps-track" title="show questions tagged &#39;named-scope&#39;" rel="tag">named-scope</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/4869994" title="short permalink to this question" class="short-link" id="link-post-4869994">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/4869994/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2011-02-02 01:42:46Z" class="relativetime">Feb 2 '11 at 1:42</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/29182/ziggy"><div class="gravatar-wrapper-32"><img src="./scope in rails_files/af3daf5de4ebd0531d978fad803a46a0" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/29182/ziggy">Ziggy</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">5,711</span><span title="14 gold badges"><span class="badge1"></span><span class="badgecount">14</span></span><span title="44 silver badges"><span class="badge2"></span><span class="badgecount">44</span></span><span title="68 bronze badges"><span class="badge3"></span><span class="badgecount">68</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-4869994" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-5413970" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">possible duplicate of <a href="http://stackoverflow.com/questions/2919730/whats-the-significance-of-named-scope-in-rails">What's the significance of named scope in Rails?</a></span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/9465/jdl" title="13160 reputation" class="comment-user">jdl</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#comment5413970_4869994"><span title="2011-02-02 01:50:09Z" class="relativetime-clean">Feb 2 '11 at 1:50</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-5414024" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This blog post was invaluable to me when learning named scopes: <a href="http://ryandaigle.com/articles/2008/8/20/named-scope-it-s-not-just-for-conditions-ya-know" rel="nofollow">ryandaigle.com/articles/2008/8/20/…</a></span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/167614/beerlington" title="30176 reputation" class="comment-user">Beerlington</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#comment5414024_4869994"><span title="2011-02-02 02:00:04Z" class="relativetime-clean">Feb 2 '11 at 2:00</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-4869994" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								3 Answers
+                                <span style="display:none;" itemprop="answerCount">3</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="4870157"></a>
+<div id="answer-4870157" class="answer accepted-answer" data-answerid="4870157" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="4870157">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">88</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>A scope is a subset of a collection. Sounds complicated? It isn't. Imagine this:</p>
+
+<p>You have Users. Now, some of those Users are subscribed to your newsletter. You marked those who receive a newsletter by adding a field to the Users Database (user.subscribed_to_newsletter = true). Naturally, you sometimes want to get those Users who are subscribed to your newsletter.</p>
+
+<p>You could, of course, always do this:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="typ">User</span><span class="pun">.</span><span class="kwd">where</span><span class="pun">(</span><span class="pln">subscribed_to_newsletter</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">).</span><span class="pln">each </span><span class="kwd">do</span><span class="pln"> </span><span class="com">#something</span></code></pre>
+
+<p>Instead of always writing this you could, however, do something like this.</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="com">#File: users.rb</span><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">User</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="typ">ActiveRecord</span><span class="pun">::</span><span class="typ">Base</span><span class="pln">
+  scope </span><span class="pun">:</span><span class="pln">newsletter</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">where</span><span class="pun">(</span><span class="pln">subscribed_to_newsletter</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">)</span><span class="pln">
+  </span><span class="com">#yada yada</span><span class="pln">
+</span><span class="kwd">end</span></code></pre>
+
+<p>This allows you to access your subscribers by simply doing this:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="typ">User</span><span class="pun">.</span><span class="pln">newsletter</span><span class="pun">.</span><span class="pln">each </span><span class="kwd">do</span><span class="pln"> </span><span class="com">#something</span></code></pre>
+
+<p>This is a very simple example but in general scopes can be very powerful tools to easy your work.</p>
+
+<p>Check out this link: <a href="http://api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/ClassMethods.html">API Desciption</a></p>
+
+<p>Hope I could help.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/4870157" title="short permalink to this answer" class="short-link" id="link-post-4870157">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/4870157/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/4870157/revisions" title="show all edits to this post">edited <span title="2014-04-26 01:10:13Z" class="relativetime">Apr 26 '14 at 1:10</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1536833/benjineer"><div class="gravatar-wrapper-32"><img src="./scope in rails_files/eb8c9199800c903a6962a5a280f6819e" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1536833/benjineer">benjineer</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">142</span><span title="10 bronze badges"><span class="badge3"></span><span class="badgecount">10</span></span>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-02-02 02:17:23Z" class="relativetime">Feb 2 '11 at 2:17</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/591561/michael-sch%c3%a4fermeyer"><div class="gravatar-wrapper-32"><img src="./scope in rails_files/8ff78bbd1fc3443a73ae3149cbccee4d" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/591561/michael-sch%c3%a4fermeyer">Michael Schäfermeyer</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1,354</span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="6 bronze badges"><span class="badge3"></span><span class="badgecount">6</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-4870157" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="2" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-6693068" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">4</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Can I ask whats the advantages of this over say defining a method in the User Class called 'subscribedUsers'? e.g. 'def self.subscribedUsers self.where(:subscribed_to_newsletter =&gt; true) end</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/690363/redroot" title="187 reputation" class="comment-user">redroot</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#comment6693068_4870157"><span title="2011-04-29 09:05:16Z" class="relativetime-clean">Apr 29 '11 at 9:05</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-12777090" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@redroot the advantage is the <code>scope</code> syntax is much cleaner, you get the same result but with just one line</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/455642/aldo-xoen-giambelluca" title="4692 reputation" class="comment-user">Aldo 'xoen' Giambelluca</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#comment12777090_4870157"><span title="2012-04-03 15:47:38Z" class="relativetime-clean">Apr 3 '12 at 15:47</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-15946737" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">you can chain scopes</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/740728/nir0" title="264 reputation" class="comment-user">nir0</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#comment15946737_4870157"><span title="2012-08-15 06:52:18Z" class="relativetime-clean">Aug 15 '12 at 6:52</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-20439094" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">6</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@redroot There used to be a big efficiency advantage, as scopes would query the database lazily while methods would do it eagerly. In Rails 3, methods got lazy too, so now the difference is more syntactic. <a href="http://stackoverflow.com/a/5899890/414220">Source</a></span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/414220/evanrmurphy" title="766 reputation" class="comment-user">evanrmurphy</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#comment20439094_4870157"><span title="2013-01-31 18:15:27Z" class="relativetime-clean">Jan 31 '13 at 18:15</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-35356407" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">API doc link is broken please update <a href="http://api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/ClassMethods.html" rel="nofollow">api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/…</a></span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/422543/user422543" title="753 reputation" class="comment-user">user422543</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#comment35356407_4870157"><span title="2014-04-17 06:54:46Z" class="relativetime-clean">Apr 17 '14 at 6:54</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-4870157" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" onclick="">show <b>2</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1088042320",4).setZone(44) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1088042320"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjciI6Njk1NzM4LCJkaSI6ImNjMzMxOTMzMzk3YjRjYjE4YjMyZTk5YTgyYWM1OGMzIiwiZG0iOjEsImZjIjo3MjE4MzIsImZsIjo0MzE3ODAsImlwIjoiMTAzLjkuMTIuMTUwIiwia3ciOiJydWJ5LW9uLXJhaWxzLG5hbWVkLXNjb3BlIiwibnciOjIyLCJwYyI6MCwicHIiOjE2MDQsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jby5pbi8iLCJzdCI6ODI3NywidWsiOiJ1ZTEtOGJkZDdhYjU3MTE2NDhmNmI1NmI1MjI4ODdkYWUwOTIiLCJ6biI6NDQsInRzIjoxNDMzMjM0ODg1NDY5LCJiZiI6dHJ1ZSwicG4iOiJhZHplcmsxMDg4MDQyMzIwIiwidXIiOiJodHRwOi8vY2FyZWVycy5zdGFja292ZXJmbG93LmNvbS9qb2JzL3JlbW90ZT91dG1fc291cmNlPXN0YWNrb3ZlcmZsb3cuY29tJnV0bV9tZWRpdW09YWQmdXRtX2NhbXBhaWduPWNhbmRpZGF0ZXMtd2ZoJnV0bV9jb250ZW50PWxiLXdmaC1raWQtd29yay1vbi13b3JrIn0&s=bbnWd5FNoMJw5WqKiVuEzjGbnpY" rel="nofollow" target="_blank" title=""><img src="./scope in rails_files/d47c809dea6241b9933a81fe1d0f7085.jpg" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./scope in rails_files/i(1).gif"></div>
+  
+<a name="26022880"></a>
+<div id="answer-26022880" class="answer" data-answerid="26022880" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="26022880">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>scope in active record is like class methods but they return Relation object which means you can call another scope or active record querying method on it.</p>
+
+<p>For example, if you have a Zombie model (zombies table) with below mentioned scope methods,</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">class</span><span class="pln"> </span><span class="typ">Zombie</span><span class="pln">
+  scope </span><span class="pun">:</span><span class="pln">rotting</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">where</span><span class="pun">(</span><span class="pln">rotting</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">)</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+  scope </span><span class="pun">:</span><span class="pln">fresh</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">where</span><span class="pun">(</span><span class="str">'age &lt; ?'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">25</span><span class="pun">)</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+  scope </span><span class="pun">:</span><span class="pln">recent</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> order</span><span class="pun">(:</span><span class="pln">created_at</span><span class="pun">,</span><span class="pln"> </span><span class="pun">:</span><span class="pln">desc</span><span class="pun">)</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">end</span></code></pre>
+
+<p>And you call</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="typ">Zombie</span><span class="pun">.</span><span class="pln">rotting</span><span class="pun">.</span><span class="pln">fresh</span><span class="pun">.</span><span class="pln">recent</span><span class="pun">.</span><span class="pln">limit</span><span class="pun">(</span><span class="lit">3</span><span class="pun">)</span></code></pre>
+
+<p>It translates to the below in SQL,</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">select</span><span class="pln"> </span><span class="str">"zombies.*"</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">"zombies"</span><span class="pln"> </span><span class="kwd">where</span><span class="pln"> </span><span class="str">"zombies"</span><span class="pun">.</span><span class="str">"rotting"</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'t'</span><span class="pln"> </span><span class="kwd">and</span><span class="pln"> </span><span class="pun">(</span><span class="pln">age</span><span class="pun">&lt;</span><span class="lit">20</span><span class="pun">)</span><span class="pln"> order </span><span class="kwd">by</span><span class="pln"> create_at desc limit </span><span class="lit">3</span></code></pre>
+
+<p>Example above is based on rails 4 syntax</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/26022880" title="short permalink to this answer" class="short-link" id="link-post-26022880">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/26022880/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/26022880/revisions" title="show all edits to this post">edited <span title="2014-09-24 23:51:25Z" class="relativetime">Sep 24 '14 at 23:51</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-09-24 17:23:17Z" class="relativetime">Sep 24 '14 at 17:23</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2607774/akshatha"><div class="gravatar-wrapper-32"><img src="./scope in rails_files/c5587eed7f6b549b259edb20cbb13fd9" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2607774/akshatha">Akshatha</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">61</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26022880" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26022880" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="16541450"></a>
+<div id="answer-16541450" class="answer" data-answerid="16541450" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="16541450">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">5</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>The best way to understand about the details is to go to API Documentation.</p>
+
+<p>You'll get the complete details and the ways we can use Scopes.</p>
+
+<p><a href="http://api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/ClassMethods.html">API Documentation of Scope</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/16541450" title="short permalink to this answer" class="short-link" id="link-post-16541450">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/16541450/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-05-14 11:00:14Z" class="relativetime">May 14 '13 at 11:00</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/934243/123"><div class="gravatar-wrapper-32"><img src="./scope in rails_files/868556f219637ae9e248e3bf50944152" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/934243/123">123</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">179</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-16541450" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-16541450" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/4869994/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="4869994">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.co.in/">
+							<h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                ,immediatelyShowMarkdownHelp:true
+                });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="75ea7ad01c82f04c807f86af1b6ba740">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f4869994%2fwhat-is-scope-named-scope-in-rails%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f4869994%2fwhat-is-scope-named-scope-in-rails%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails" class="post-tag" title="show questions tagged &#39;ruby-on-rails&#39;" rel="tag">ruby-on-rails</a> <a href="http://stackoverflow.com/questions/tagged/named-scope" class="post-tag" title="show questions tagged &#39;named-scope&#39;" rel="tag">named-scope</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2011-02-02 01:42:46Z"><b>4 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>12412 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails?lastactivity" class="lastactivity-link" title="2014-09-24 23:51:25Z">8 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1980762047",[17,2221]).setZone(45) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1980762047"><div id="careersadsdoublehigh" style="display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/4869994/what-is-scope-named-scope-in-rails#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./scope in rails_files/i(2).gif"></div>  
+        <div id="hireme" class="blue looking tagged"><a href="http://careers.stackoverflow.com/jobs?a=2Z3UI" target="_blank" data-la="2Z3UI" data-hf="h" class="top"> <span>Looking for a job?</span></a><ul class="jobs"><li><a data-cid="171042" data-la="srqXpbsorG9" href="http://careers.stackoverflow.com/jobs/84809/senior-technical-operations-engineer-swiftype" target="_blank" title="Senior Technical Operations Engineer at Swiftype. Click to learn more.">Senior Technical Operations Engineer<br><div class="company">Swiftype</div><div class="location" title="San Francisco, CA / relocation">San Francisco, CA / relocation</div><span class="post-tag">ruby</span><span class="post-tag highlight">ruby-on-rails</span></a></li><li><a data-cid="152121" data-la="m13EkrNVV50" href="http://careers.stackoverflow.com/jobs/65650/application-developer-chennai-thoughtworks-technologies" target="_blank" title="Application Developer,Chennai at ThoughtWorks Technologies. Click to learn more.">Application Developer,Chennai<br><div class="company">ThoughtWorks Technologies</div><div class="location" title="Chennai, India">Chennai, India</div><span class="post-tag">ruby</span><span class="post-tag">java</span></a></li><li><a data-cid="152118" data-la="m0ZMxSbOpkD" href="http://careers.stackoverflow.com/jobs/65647/application-developer-hyderabad-thoughtworks-technologies" target="_blank" title="Application Developer,Hyderabad at ThoughtWorks Technologies. Click to learn more.">Application Developer,Hyderabad<br><div class="company">ThoughtWorks Technologies</div><div class="location" title="Hyderabad, India">Hyderabad, India</div><span class="post-tag highlight">ruby-on-rails</span><span class="post-tag">java</span></a></li><li><a data-cid="158673" data-la="odAgombMFgg" href="http://careers.stackoverflow.com/jobs/72216/polyglot-developer-rb-js-clj-etc-mavenhive-technologies" target="_blank" title="Polyglot Developer (.rb, .js, .clj etc) at MavenHive Technologies. Click to learn more.">Polyglot Developer (.rb, .js, .clj etc)<br><div class="company">MavenHive Technologies</div><div class="location" title="Bengaluru, India / relocation">Bengaluru, India / relocation</div><span class="post-tag highlight">ruby-on-rails</span><span class="post-tag">postgresql</span></a></li></ul><img class="impression" src="./scope in rails_files/i" style="display:none;"><img class="impression" src="./scope in rails_files/srqXpbsorG9-m13EkrNVV50-m0ZMxSbOpkD-odAgombMFgg-2Z3UI" style="display:none;"></div>
+			<div class="module" id="chat-feature">
+    
+
+    
+<h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="91 users active in 46 rooms the last 60 minutes">91 People Chatting</a></h4>
+
+<div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="JavaScript"><a href="http://chat.stackoverflow.com/rooms/17">JavaScript</a></span></h3><span title="2015-06-02 06:27:35Z" class="ad502-last-message">2 hours ago - <a href="http://chat.stackoverflow.com/users/499214">Jan Dvorak</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/499214"><img height="23" width="23" title="Jan Dvorak: 2 hours ago" src="./scope in rails_files/PObJM.png"></a><a href="http://chat.stackoverflow.com/users/576682"><img height="23" width="23" title="Ant&#39;s: 2 hours ago" src="./scope in rails_files/4bf67432be46991fde147b0b0fa74312"></a><a href="http://chat.stackoverflow.com/users/145682"><img height="23" width="23" title="deostroll: 2 hours ago" src="./scope in rails_files/e90f935b2cbce2f47b0c8e52927cc2a3"></a><a href="http://chat.stackoverflow.com/users/1839506"><img height="23" width="23" title="Caprica Six: 2 hours ago" src="./scope in rails_files/Sej2t.jpg"></a><a href="http://chat.stackoverflow.com/users/2135078"><img height="23" width="23" title="mef_: 4 hours ago" src="./scope in rails_files/f42fcb7796c887298a533a28d7ab3153"></a><a href="http://chat.stackoverflow.com/users/1386166"><img height="23" width="23" title="phenomnomnominal: 4 hours ago" src="./scope in rails_files/7ea079654bb159fdaa4043834688f57d"></a><a href="http://chat.stackoverflow.com/users/855760"><img height="23" width="23" title="Abhishrek: 5 hours ago" src="./scope in rails_files/x4ZMC.jpg"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="Lounge&lt;C++&gt;"><a href="http://chat.stackoverflow.com/rooms/10">Lounge&lt;C++&gt;</a></span></h3><span title="2015-06-02 06:23:42Z" class="ad502-last-message">2 hours ago - <a href="http://chat.stackoverflow.com/users/1069200">Johan Larsson</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/1069200"><img height="23" width="23" title="Johan Larsson: 2 hours ago" src="./scope in rails_files/4c033488b80a25de7c6adf976b10ba25"></a><a href="http://chat.stackoverflow.com/users/1527217"><img height="23" width="23" title="khajvah: 2 hours ago" src="./scope in rails_files/090621e17b3ad752124c4d0290f768d7"></a><a href="http://chat.stackoverflow.com/users/565635"><img height="23" width="23" title="orlp: 2 hours ago" src="./scope in rails_files/7b4b3e7c9ac68b7d2c93ad02d0b9c79d"></a><a href="http://chat.stackoverflow.com/users/341065"><img height="23" width="23" title="wilx: 2 hours ago" src="./scope in rails_files/8e57fe4b0f7381288a8e1e4c6cd77a8e"></a><a href="http://chat.stackoverflow.com/users/2369847"><img height="23" width="23" title="chmod 711 telkitty: 2 hours ago" src="./scope in rails_files/bZewd.jpg"></a><a href="http://chat.stackoverflow.com/users/75889"><img height="23" width="23" title="StackedCrooked: 3 hours ago" src="./scope in rails_files/37aa3ec65ec47c5a3f9e2a80534837f3"></a><a href="http://chat.stackoverflow.com/users/1381108"><img height="23" width="23" title="Rapptz: 3 hours ago" src="./scope in rails_files/0a55e1b257487441cd435f66bfb413f1"></a></div></div></div>
+<script>
+// <!--
+    StackExchange.ready(
+    function () {
+        var options = {
+            chatUrl: 'http://chat.stackoverflow.com',
+            reloadUrl: '/api/recent-chat',
+            preloadData: {"activeUsers":91,"activeRooms":46,"rooms":[{"name":"JavaScript","id":17,"lastPost":1433226455,"posts":2634755,"users":[{"name":"Jan Dvorak","id":499214,"emailhash":"!http://i.stack.imgur.com/PObJM.png?s=128\u0026g=1","lastPost":1433226455},{"name":"Ant\u0027s","id":576682,"emailhash":"4bf67432be46991fde147b0b0fa74312","lastPost":1433226325},{"name":"deostroll","id":145682,"emailhash":"e90f935b2cbce2f47b0c8e52927cc2a3","lastPost":1433226027},{"name":"Caprica Six","id":1839506,"emailhash":"!http://i.stack.imgur.com/Sej2t.jpg?s=128\u0026g=1","lastPost":1433225875},{"name":"mef_","id":2135078,"emailhash":"f42fcb7796c887298a533a28d7ab3153","lastPost":1433219437},{"name":"phenomnomnominal","id":1386166,"emailhash":"7ea079654bb159fdaa4043834688f57d","lastPost":1433218284},{"name":"Abhishrek","id":855760,"emailhash":"!http://i.stack.imgur.com/x4ZMC.jpg?s=128\u0026g=1","lastPost":1433214941}],"messages":[{"date":1433226455,"user":"Jan Dvorak","userid":499214}],"singleImage":false,"tags":["ecmascript","es6","iojs","javascript","nodejs","promises"]},{"name":"Lounge\u003cC++\u003e","id":10,"lastPost":1433226222,"posts":3745037,"users":[{"name":"Johan Larsson","id":1069200,"emailhash":"4c033488b80a25de7c6adf976b10ba25","lastPost":1433226222},{"name":"khajvah","id":1527217,"emailhash":"090621e17b3ad752124c4d0290f768d7","lastPost":1433225622},{"name":"orlp","id":565635,"emailhash":"7b4b3e7c9ac68b7d2c93ad02d0b9c79d","lastPost":1433225548},{"name":"wilx","id":341065,"emailhash":"8e57fe4b0f7381288a8e1e4c6cd77a8e","lastPost":1433224429},{"name":"chmod 711 telkitty","id":2369847,"emailhash":"!http://i.stack.imgur.com/bZewd.jpg?s=128\u0026g=1","lastPost":1433224111},{"name":"StackedCrooked","id":75889,"emailhash":"37aa3ec65ec47c5a3f9e2a80534837f3","lastPost":1433223159},{"name":"Rapptz","id":1381108,"emailhash":"0a55e1b257487441cd435f66bfb413f1","lastPost":1433221608}],"messages":[{"date":1433226222,"user":"Johan Larsson","userid":1069200}],"singleImage":false,"tags":["c++","c++11","c++14","c++-faq"]}]} 
+        };
+
+        StackExchange.chatAd.init(options);
+    });
+// -->
+</script>
+
+</div>  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/22920519?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/22920519/what-are-scopes-in-context-of-ruby-on-rails?lq=1" class="question-hyperlink">What are scopes in context of ruby on rails?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/5899765?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">47</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/5899765/activerecord-rails-3-scope-vs-class-method?lq=1" class="question-hyperlink">ActiveRecord Rails 3 scope vs class method</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/2919730?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/2919730/whats-the-significance-of-named-scope-in-rails?lq=1" class="question-hyperlink">What's the significance of named scope in Rails?</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/166217?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">18
+    </div>
+</a><a href="http://stackoverflow.com/questions/166217/rails-named-scopes-with-joins?rq=1" class="question-hyperlink">Rails named_scopes with joins</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/1597581?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="http://stackoverflow.com/questions/1597581/activerecord-named-scope-scopes?rq=1" class="question-hyperlink">ActiveRecord named_scope, .scopes</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/2061389?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">7
+    </div>
+</a><a href="http://stackoverflow.com/questions/2061389/named-scope-in-rails-unique-records?rq=1" class="question-hyperlink">Named_scope in rails unique records?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/2443650?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">6
+    </div>
+</a><a href="http://stackoverflow.com/questions/2443650/reusing-named-scope-to-define-another-named-scope?rq=1" class="question-hyperlink">Reusing named_scope to define another named_scope</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/3028987?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/3028987/rails-named-scope-issue-with-eager-loading?rq=1" class="question-hyperlink">rails named_scope issue with eager loading</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/3536607?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/3536607/what-is-a-difference-between-named-scope-and-named-scope-lambda?rq=1" class="question-hyperlink">What is a difference between named_scope and named_scope + lambda</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/3735838?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">13
+    </div>
+</a><a href="http://stackoverflow.com/questions/3735838/empty-scope-with-ruby-on-rails?rq=1" class="question-hyperlink">Empty Scope with Ruby on Rails</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/5162050?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/5162050/will-this-work-with-named-scope-in-rails?rq=1" class="question-hyperlink">Will this work with named_scope in rails?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/5897196?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/5897196/rails-named-scope-inheritance?rq=1" class="question-hyperlink">Rails named_scope inheritance?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/6272511?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/6272511/rails-2-3-8-named-scope-chaining?rq=1" class="question-hyperlink">Rails 2.3.8 named_scope chaining</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/15744/math-puzzle-eights-and-six" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Math Puzzle - Eights and Six
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-serverfault" title="Server Fault"></div><a href="http://serverfault.com/questions/695971/iptables-command-from-rhel-documentation-for-cobbler-fails-in-rhel-7" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:2 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    iptables command from RHEL documentation for cobbler, fails in RHEL 7
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-cs" title="Computer Science Stack Exchange"></div><a href="http://cs.stackexchange.com/questions/43159/why-is-the-class-of-npc-important-compared-to-np-hard" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:419 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is the class of NPC important compared to NP-hard?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/208071/is-this-a-rational-function" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is this a rational function?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1308926/0-1-as-a-subspace-of-the-euclidian-metric-space" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    [0,1) as a subspace of the Euclidian metric space?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-apple" title="Ask Different"></div><a href="http://apple.stackexchange.com/questions/189654/unusual-icon-appearing-in-mac-os-x-yosemite" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:118 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Unusual Icon Appearing in Mac OS X Yosemite
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/9283/why-are-rockets-cylindrical" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why are rockets cylindrical?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1308656/statistics-why-doesnt-the-probability-of-an-accurate-medical-test-equal-the-pr" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Statistics: Why doesn't the probability of an accurate medical test equal the probability of you having disease?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/187254/how-to-recover-an-unfocussed-image" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to recover an unfocussed image
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="http://diy.stackexchange.com/questions/67058/do-metal-junction-boxes-used-solely-as-pull-boxes-need-to-be-grounded" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do metal junction boxes used solely as pull boxes need to be grounded?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-anime" title="Anime &amp; Manga Stack Exchange"></div><a href="http://anime.stackexchange.com/questions/22052/anime-about-a-guy-who-listened-to-some-girls-music-and-starts-having-a-dream-si" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:477 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Anime about a guy who listened to some girl's music and starts having a dream similar to what the girl who made the song dreamt of
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/208112/solving-algebraic-problems-with-topology" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Solving algebraic problems with topology
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="http://travel.stackexchange.com/questions/48570/drive-to-us-fly-from-there-without-passport" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Drive to US, fly from there without passport?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-civicrm" title="CiviCRM Stack Exchange"></div><a href="http://civicrm.stackexchange.com/questions/2932/how-do-i-get-more-than-25-records-from-the-api" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:605 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I get more than 25 records from the API?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/91412/does-the-terminator-replace-its-skin-after-showing-miles-dyson-its-hand" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does the Terminator replace it's skin after showing Miles Dyson it's hand?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/91344/does-a-typed-copy-of-tolkiens-handwritten-text-in-this-image-exist" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does a typed copy of Tolkien's handwritten text in this image exist?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/206950/how-to-sort-data-in-the-file-using-script" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to sort data in the file using script?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/173468/easy-way-to-figure-out-a-leds-vf-in-order-to-pick-an-appropriate-resistor" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Easy way to figure out a LED's Vf in order to pick an appropriate resistor
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/30563716/how-do-i-undo-true-false-in-python-interactive-mode" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I undo True = False in python interactive mode?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-chemistry" title="Chemistry Stack Exchange"></div><a href="http://chemistry.stackexchange.com/questions/32306/can-100-covalent-bonds-exist" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:431 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can 100% covalent bonds exist?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/206779/is-it-a-good-practice-to-run-a-daemon-under-a-non-root-user-account" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it a good practice to run a daemon under a non-root user account?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1308780/if-i-have-a-diagonal-matrix-is-it-necessarily-the-product-of-two-other-diagonal" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If I have a diagonal matrix, is it necessarily the product of two other diagonal matrices?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/922068/how-to-disable-the-get-windows-10-icon-shown-in-the-notification-area-tray" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to disable the "Get Windows 10" icon shown in the notification area (tray)?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/207477/john-nashs-mathematical-legacy" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    John Nash's Mathematical Legacy
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/4869994" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/4869994/ivc/1c5d');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/4869994/ivc/1c5d" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (10)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.6.2.2624
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('ruby-on-rails,named-scope');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|ruby-on-rails|named-scope|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>            
+    
+<script type="text/javascript" src="./scope in rails_files/p"></script></body></html>

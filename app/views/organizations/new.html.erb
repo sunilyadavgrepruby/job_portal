@@ -1,0 +1,22 @@
+<%= render partial: "shared/side" %>
+ <h3 align ="center"> Create Organization</h3>
+ <p align="center">
+  <%= form_for :organization, url: organizations_path  do |f| %>
+  </p>
+    <p align="center">
+      <%= f.label :name %><br>
+      <%= f.text_field :organization_name %>
+    </p>
+  <p align="center">
+      <%= f.label :address %><br>
+      <%= f.text_area :organization_address %>
+    </p>
+  <p align="center">
+      <%= f.label :email %><br>
+      <%= f.text_field:organization_email %>
+    </p>
+  <p align="center">
+      <%= f.submit %>
+    </p>
+  <% end %>
+
