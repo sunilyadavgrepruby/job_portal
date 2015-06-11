@@ -1,0 +1,8 @@
+.side-menu {
+ width: 10%;
+ position : fixed;
+}
+.main-content {
+  margin-top: 1%;
+  margin-left: 16%;
+}

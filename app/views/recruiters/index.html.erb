@@ -1,0 +1,26 @@
+<%= render partial: "shared/side" %>
+<div class ="content">
+<div class ="brand" align= "right">
+  <%= link_to 'New', new_organization_path, :class => "btn btn-primary" %>
+</div>
+  <table align ="center">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>     
+      <th>Email</th>
+      <th>Operations</th>
+      <th colspan="2"></th>
+    </tr>
+     <% @organizations.each do |organization| %>
+     <br/>
+      <tr>
+        <td><%=organization.organization_name %></td>
+        <td><%=organization.organization_address %></td>
+        <td><%=organization.organization_email %></td>
+        <td><%=link_to 'Show', organization_path(organization) ,:class => "btn btn-primary" %>
+            <%=link_to 'Edit', edit_organization_path(organization),:class => "btn btn-primary"  %>
+            <%=link_to 'delete', organization_path(organization), :method =>'delete' ,:class => "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

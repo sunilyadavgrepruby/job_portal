@@ -45,4 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+gem 'devise_invitable'
 gem 'pry'
+gem 'pry-remote'
+gem 'pry-nav'

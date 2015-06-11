@@ -1,15 +1,18 @@
 class OrganizationsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @organizations = Organization.all
+    @organizations = current_user.organizations
   end
   
   def new
-    @organization = Organization.new
+    @organization = current_user.organizations.build
   end
   
   def create
-    @organization = Organization.new(organization_params)
+    @organization = current_user.organizations.build(organization_params)
     if @organization.save
+      flash["success"] = "Organization created successfully"
       redirect_to @organization
     else
       render 'new'
@@ -17,27 +20,28 @@ class OrganizationsController < ApplicationController
   end
   
   def edit
-    @organization = Organization.find(params[:id])
+    @organization = current_user.organizations.where(id: params[:id]).first
   end
   
 
   def update
-    @organization = Organization.find(params[:id])
+    @organization = current_user.organizations.find(params[:id])
     if @organization.update(organization_params)
+      flash["success"] = "Successfully Updated."
       redirect_to @organization
     else
       render 'edit'
     end
-    def rescue
-    end
   end
   
   def show
-    @organization = Organization.find(params[:id])
+    @organization = current_user.organizations.find(params[:id])
   end
+  
   def destroy
-    @organization = Organization.find(params[:id])
+    @organization = current_user.organizations.find(params[:id])
     @organization.destroy
+    flash["notice"] = "Organization deleted Successfully!"
     redirect_to organizations_path
   end
   

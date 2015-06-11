@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JobPortal</title>
+    <title>Job-Portal</title>
     <%= stylesheet_link_tag    "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body align ="center">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a  align="left" class="brand" href="/" >Job Portal</a>
-          <!--/.nav-collapse -->
-          <% if user_signed_in? %>
-            <%= link_to "Sing Out", destroy_user_session_path, method: :delete, class: "brand pull-right" %>
-            <div align = "right" ><%= link_to "Welcome :  #{current_user.role}", organizations_path, class: "brand pull-right" %></div>
-          <% else %>
-            <%= link_to "Sing Up", new_user_registration_path, class: "brand pull-right" %>
-            <%= link_to "Sing In", new_user_session_path , class: "brand pull-right" %>
-          <% end %>
+  <body>
+    <%= render partial: "layouts/header" %>
+    <div class ="container">
+      <div class="row">
+      <% if user_signed_in? %>
+        <div class="side-menu left">
+          <%= render partial: "layouts/side_menu" %>
         </div>
+      <% end %>
+      <div class="main-content right">
+        <%= yield %>
+      </div>
       </div>
     </div>
-    <br/>
-    <br/>
-    <%= yield %>
   </body>
 </html>

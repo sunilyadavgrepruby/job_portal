@@ -1,0 +1,28 @@
+<div class ="content">
+  <h1 align ="center"> Job details</h1>
+    <div class ="brand" align= "right">
+      <%= link_to 'New',  new_organization_job_path(@org), :class => "btn btn-primary" %>
+    </div>
+    <table class = "table table-striped">
+      <tr>
+        <th>Title</th>
+        <th>Description</th> 
+        <th>Operations</th>     
+        <th colspan="2"></th>
+      </tr>
+      
+      <% @jobs.each do |job| %>
+        <br/>
+        <tr>
+          <td><%=job.title %></td>
+          <td><%=job.description %></td>
+          <td><%=link_to 'Show', organization_job_path(@org, job) ,:class => "btn btn-primary" %>
+              <%=link_to 'Edit', edit_organization_job_path(@org, job),:class => "btn btn-primary"  %>
+              <%=link_to 'Delete', organization_job_path(@org, job) ,:class => "btn btn-primary", method: :delete, :confirm => 'Are you sure?'%></td>
+        </tr>
+      <% end %>
+    </table>
+    <p align ="center">
+      <%= link_to 'Back', organizations_path %>
+    </p>
+</div>

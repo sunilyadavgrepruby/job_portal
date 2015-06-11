@@ -1,26 +1,42 @@
-<%= render partial: "shared/side" %>
- <h1  align="center"> Edit organization</h1>
- <p align="center">
-<%= form_for :organization, url: organization_path(@organization), method: :patch do |f| %>
-</p>
- <p align="center">
-    <%= f.label :name %><br>
-    <%= f.text_field :organization_name %>
-  </p>
- 
- <p align="center">
-    <%= f.label :Address %><br>
-    <%= f.text_area :organization_address %>
-  </p>
-   <p align="center">
-    <%= f.label :Email %><br>
-    <%= f.text_area :organization_email %>
-  </p>
- <p align="center">
-    <%= f.submit %>
-  </p>
- 
-<% end %>
-<p align="center">
-<%= link_to 'Back',organizations_path %>
-</p>
+<div align= "center">
+  <% if @organization.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@organization.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @organization.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+   <% end %>
+    <h1  align="center"> Edit organization</h1>
+      <div align ="center">
+        <p align="center">
+         <%= form_for :organization, url: organization_path(@organization), method: :patch do |f| %>
+        </p>
+        <p align="center">
+          <%= f.label :name %><br>
+          <%= f.text_field :organization_name %>
+        </p>
+       
+         <p align="center">
+            <%= f.label :Address %><br>
+            <%= f.text_area :organization_address %>
+        </p>
+         <p align="center">
+           <%= f.label :Email %><br>
+           <%= f.text_area :organization_email %>
+        </p>
+        <p align="center">
+          <%= f.submit %>
+        </p>
+       
+         <% end %>
+        <p align="center">
+          <%= link_to 'Back',organizations_path %>
+        </p>
+      </div>
+</div>

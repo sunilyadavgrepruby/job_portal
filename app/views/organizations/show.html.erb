@@ -1,18 +1,19 @@
-<%= render partial: "shared/side" %>
 <h1 align ="center"> Organization Details</h1>
-<p  align ="center">
-  <strong>Name:</strong>
-  <%= @organization.organization_name %>
-</p>
- 
-<p  align ="center">
-  <strong>Address:</strong>
-  <%= @organization.organization_address %>
-</p>
-<p  align ="center">
-  <strong>Email:</strong>
-  <%= @organization.organization_email %>
-</p>
-<p align ="center">
-<%= link_to 'Back', organizations_path %>
-</p>
+  <div align ="center">
+    <p  align ="center">
+      <strong>Name:</strong>
+      <%= @organization.organization_name %>
+    </p>
+   
+    <p  align ="center">
+      <strong>Address:</strong>
+      <%= @organization.organization_address %>
+    </p>
+    <p  align ="center">
+      <strong>Email:</strong>
+      <%= @organization.organization_email %>
+    </p>
+    <p align ="center">
+      <%= link_to 'Back', organizations_path %>
+    </p>
+  </div>

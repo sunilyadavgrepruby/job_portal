@@ -18,7 +18,10 @@ JobPortal::Application.routes.draw do
     end
   end
   
- resources :organizations
+ resources :organizations do
+  resources :jobs
+ end
+ resources :employees
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
