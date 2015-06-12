@@ -9,13 +9,17 @@ class ApplicationController < ActionController::Base
   
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up)  { |u| u.permit(:email, :password, :role) }
+    devise_parameter_sanitizer.for(:invite).concat [:email]
+
   end
   
   def after_sign_in_path_for(resource)
     if resource.is?("candidate")
       dashboard_candidates_path(resource)
     elsif resource.is?("recruiter")
-      organizations_path
+      dashboard_recruiter_path(resource)
+    elsif resource.is?("employee")
+      dashboard_user_path(resource)
     end
   end
 end

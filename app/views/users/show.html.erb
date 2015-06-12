@@ -1,0 +1,20 @@
+<h1 align="center">EMPLOYEES</h1>
+  <div class ="brand" align= "right">
+    <%= link_to 'Invite-New', new_user_invitation_path, :class => "btn btn-primary" %>
+  </div>
+  <table class= "table table-striped">
+    <tr>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Role</th>
+      <th colspan="2"></th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%=user.email %></td>
+      <td><%=user.encrypted_password %></td>
+      <td><%=user.role %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

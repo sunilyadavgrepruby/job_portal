@@ -1,28 +1,30 @@
 <div class ="content">
-  <h1 align ="center"> Job details</h1>
+  <h1 align ="center"> JOBS</h1>
     <div class ="brand" align= "right">
-      <%= link_to 'New',  new_organization_job_path(@org), :class => "btn btn-primary" %>
+      <%= link_to 'New',  new_job_path, :class => "btn btn-primary" %>
     </div>
     <table class = "table table-striped">
       <tr>
+        <th>Organization Name</th>
         <th>Title</th>
         <th>Description</th> 
         <th>Operations</th>     
         <th colspan="2"></th>
       </tr>
-      
       <% @jobs.each do |job| %>
-        <br/>
         <tr>
-          <td><%=job.title %></td>
-          <td><%=job.description %></td>
-          <td><%=link_to 'Show', organization_job_path(@org, job) ,:class => "btn btn-primary" %>
-              <%=link_to 'Edit', edit_organization_job_path(@org, job),:class => "btn btn-primary"  %>
-              <%=link_to 'Delete', organization_job_path(@org, job) ,:class => "btn btn-primary", method: :delete, :confirm => 'Are you sure?'%></td>
+          <td><%= job.organization.organization_name %></td>
+          <td><%= job.title %></td>
+          <td><%= job.description %></td>
+          <td>
+            <%= link_to 'Show',  job_path(job) ,:class => "btn btn-primary" %>
+            <%= link_to 'Edit', edit_job_path(job),:class => "btn btn-primary"  %>
+            <%= link_to 'Delete', job_path(job) ,:class => "btn btn-primary", method: :delete %>
+          </td>
         </tr>
       <% end %>
-    </table>
-    <p align ="center">
-      <%= link_to 'Back', organizations_path %>
-    </p>
+  </table>
+  <p align ="center">
+    <%= link_to 'Top', jobs_path %>
+  </p>
 </div>

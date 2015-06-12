@@ -1,3 +1,17 @@
+<div align= "center">
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@job.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @job.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <h1 align ="center"> Job Details</h1>
   <p  align ="center">
     <strong>Title:</strong>
@@ -8,5 +22,5 @@
     <%= @job.description %>
   </p>
   <p align ="center">
-    <%= link_to 'Back', organization_jobs_path %>
+    <%= link_to 'Back', jobs_path %>
   </p>

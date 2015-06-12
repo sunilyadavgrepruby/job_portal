@@ -1,5 +1,5 @@
 JobPortal::Application.routes.draw do
-  devise_for :users
+  devise_for :users 
   get "users/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -18,11 +18,9 @@ JobPortal::Application.routes.draw do
     end
   end
   
- resources :organizations do
-  resources :jobs
- end
- resources :employees
-  
+ resources :organizations
+ resources :jobs
+   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

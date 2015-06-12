@@ -1,37 +1,7 @@
-<div align ="center">
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@job.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @job.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-</div>
-<h1  align="center"> Edit Job</h1>
-  <div align ="center">
-    <p align="center">
-      <%= form_for :job, url:  organization_job_path(@org, @job), method: :patch do |f| %>
-    </p>
-    <p align="center">
-      <%= f.label :Title %><br>
-      <%= f.text_field :title ,:placeholder => "placeholder text" %>
-    </p>
-   
-    <p align="center">
-      <%= f.label :Description %><br>
-      <%= f.text_area :description , :placeholder => "placeholder text"%>
-    </p>
-   <p align="center">
-      <%= f.submit %>
-    </p>
-      <% end %>
-    <p align="center">
-      <%= link_to 'Back',organizations_path %>
-    </p>
-  </div>
+<div align ="center"  >
+  <h1  align="center"> Edit Job</h1>
+    <%= render 'form' %>
+      <p align="center">
+        <%= link_to 'Back',jobs_path %>
+      </p>
+</div>      
